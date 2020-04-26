@@ -1,0 +1,28 @@
+   
+<!-- <div class="container lala" *ngIf="!isSuccessful"> -->
+<div class="container lala" *ngIf="tmpLoggedIn == 'false'">
+    <form #loginForm="ngForm">
+    <div class="regDiv">
+        <h1>LOGIN</h1>
+    </div>  
+    <div class="form-group col">
+        <label for="username">Username</label>
+        <input placeholder="type here" type="text" [(ngModel)]="user.username" class="form-control" id="username" name="username" required #username="ngModel">
+    </div>
+    <div class="form-group col">
+        <label for="password">Password</label>
+        <input placeholder="type here" type="password" [(ngModel)]="user.password" class="form-control" id="password" name="password" required #password="ngModel">
+    </div>
+    <p *ngIf="visualize">{{returnedText}}</p>
+    <div class="form-group col regbutton">
+        <button [disabled]="!loginForm.form.valid" class="btn btn-success succ_button" (click)="login()">LOGIN</button>
+    </div>
+  </form> 
+</div>
+<!-- <app-vehicle-form [isSuccessful]="isSuccessful" [userId]="userId"></app-vehicle-form> -->
+<app-vehicle-form *ngIf="tmpLoggedIn == 'true'" [userId]="userId"></app-vehicle-form>
+<!-- <div *ngIf="isDone">
+    <label class="succ">Successful registration</label><br><br>
+    <img src="assets/img/smiley-removebg-preview.png" height="300" width="300" class="succ_pic">
+    <p><a class="btn btn-success succ_button" routerLink="/about">Add a car</a></p>
+</div> -->

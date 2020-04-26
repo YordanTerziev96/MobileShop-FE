@@ -1,0 +1,45 @@
+.lala{
+    background-color: rgb(73, 72, 72);
+}
+
+label{
+    color: #62c462;
+}
+
+.form-group{
+    font-size: 20px;
+}
+
+.upload_image{
+    width: 100px;
+    margin-left: 50px;
+}
+
+.succ {
+    font-size: 40px;
+    text-align: center;
+    display: block;
+}
+
+.succ_pic {
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+    height: 500px;
+    display: block;
+}
+
+.succ_button {
+    position: absolute;
+    bottom: 20px;
+    width: 60%;
+    margin-right: 10%;
+    margin-left: 367px;
+    border: 3px solid #8AC007;
+
+}
+
+textarea {
+    height: 300px;
+    width: 500px;
+}

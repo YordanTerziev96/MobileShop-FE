@@ -1,0 +1,16 @@
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Popular Cars</h3>
+    </div>
+    <div class="panel-body">
+      <div *ngIf="vehicles">
+        <div *ngFor="let vehicle of vehicles;let i=index" class="col-md-12">
+          <hr>
+          <app-vehicle  [vehicle]="vehicle"></app-vehicle>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  

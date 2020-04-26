@@ -1,0 +1,32 @@
+<table>
+  <tbody>
+    <tr>
+        <td style="width: 300px;">
+          <img *ngIf="images" class="thumbnail" [src]="imageUrl" alt="" style="max-height:100%; max-width:100%">
+      </td>
+      <td style="width: 360px;">    
+          <div>
+              <h3>   {{vehicle.brand}} - {{vehicle.model}}</h3>
+              <h5 class="entyp">Engine type: {{vehicle.engineType}}</h5>
+          </div>
+      </td>   
+      <td style="width: 100px;"> 
+          <div>
+            <h3 class="year">{{vehicle.year}}</h3>
+          </div>
+      </td>
+      <td style="width: 200px;">
+          <div>
+              <h2>{{vehicle.price}}</h2>
+              <h3 class="valuta">ЛЕВА</h3>
+          </div>
+      </td>
+      <td style="width: 500px;">
+          <div>
+              <h3 class="region">{{vehicle.region}}</h3>
+          </div>
+      </td>    
+  </tr>
+  </tbody>
+</table>
+<p><a class="btn btn-default details" routerLink="/vehicle/{{vehicle.id}}">View Details</a></p>

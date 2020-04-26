@@ -1,0 +1,82 @@
+/* img {
+    width: 400px;
+    height: 250px;
+    margin-left: 50px;
+}
+
+h3 {
+    margin-left: 50px;
+}
+
+.year {
+    margin-left: 200px; 
+}
+
+.valuta {
+    margin-left: 200px; 
+}
+
+p {
+    margin-left: 34px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+a {
+    width: 350px;
+}
+
+.entyp {
+    margin-left: 50px;
+}
+
+h2 {
+    margin-left: 70%;
+}
+
+h5 {
+    margin-left: 200px;
+}
+ */
+
+ .entyp {
+    margin-left: 50px;
+}
+
+.year {
+    margin-left: 200px; 
+}
+
+h3 {
+    margin-left: 50px;
+}
+
+h2 {
+    margin-left: 300px;
+}
+
+.valuta {
+    margin-left: 300px; 
+}
+
+.region {
+    margin-left: 250px; 
+}
+
+.details {
+    width: 310px;
+}
+
+ table {
+    width: 100%;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+    -webkit-border-horizontal-spacing: 0px;
+    -webkit-border-vertical-spacing: 0px;
+ }
+
+ img {
+     margin: auto;
+ }

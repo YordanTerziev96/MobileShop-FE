@@ -1,0 +1,34 @@
+   
+<div class="container lala" *ngIf="!isDone">
+    <form #registrationForm="ngForm">
+    <div class="regDiv">
+        <h1>Register</h1>
+    </div>  
+    <div class="form-group col">
+        <label for="username">username</label>
+        <input placeholder="username" type="text" [(ngModel)]="user.username" class="form-control" id="username" name="username" required #username="ngModel">
+    </div>
+    <div class="form-group col">
+        <label for="password">password</label>
+        <input placeholder="password" type="password" [(ngModel)]="user.password" class="form-control" id="password" name="password" required #password="ngModel">
+    </div>
+    <div class="form-group col">
+            <label for="mobilePhone">mobile phone</label>
+            <input placeholder="mobile phone" type="text" [(ngModel)]="user.mobilePhone" class="form-control" id="mobilePhone" name="mobilePhone" required #mobilePhone="ngModel">  
+    </div>
+    <div class="form-group col">
+        <label for="email">Email</label>
+        <input placeholder="email" type="text" [(ngModel)]="user.email" class="form-control" id="email" name="email" required #email="ngModel">
+    </div>
+    <p class="errorText" *ngIf="visualize">{{returnedText}}</p>
+    <div class="form-group col regbutton">
+        <button [disabled]="!registrationForm.form.valid" class="btn btn-success succ_button" (click)="onRegister()" >Register</button>
+    </div>
+  </form> 
+</div>
+<div *ngIf="isDone">
+    
+    <img src="assets/img/smiley-removebg-preview.png" height="300" width="300" class="succ_pic">
+    <label class="succ">Successful registration</label><br><br>
+    <p><a class="btn btn-success succ_button" routerLink="/login">Add a car</a></p>
+</div>

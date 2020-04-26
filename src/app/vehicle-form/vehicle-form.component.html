@@ -1,0 +1,150 @@
+<div>
+<div class="container lala" *ngIf="!isDone">
+  <form #vehicleForm="ngForm">
+      <!-- (ngSubmit)="onUpload()" -->
+    <div class="row">
+      <div class="form-group col">
+          <label for="type">Type</label>
+          <select class="form-control"  id="type"
+          required
+          [(ngModel)]="vehicle.type" name="type">
+            <option value=""></option>
+            <option *ngFor="let type of types" [ngValue]="type">
+                {{type}}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group col">
+            <label for="category">Category</label>
+            <select class="form-control"  id="category"
+            required
+            [(ngModel)]="vehicle.categoryType" name="categoryType">
+              <option value=""></option>
+              <option *ngFor="let categoryType of categories" [ngValue]="categoryType">
+                  {{categoryType}}
+              </option>
+            </select>
+          </div>
+    </div>  
+    <div class="row">
+      <div class="form-group col">
+          <label for="brand">Brand</label>
+          <select class="form-control"  id="brand"
+          required
+          [(ngModel)]="vehicle.brand" name="brand" (change)="onSelect($event.target.value)">
+            <option value=""></option>
+            <option *ngFor="let brand of brands" [ngValue]="brand">
+                {{brand}}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group col">
+            <label for="model">Model</label>
+            <select class="form-control"  id="model"
+            required
+            [(ngModel)]="vehicle.model" name="brand">
+              <option value=""></option>
+              <option *ngFor="let model of models" [ngValue]="model">
+                  {{model}}
+              </option>
+            </select>
+          </div>
+    </div>
+    <div class="row">
+          <div class="form-group col">
+              <label for="engineType">Engine Type</label>
+              <select class="form-control"  id="engineType"
+              required
+              [(ngModel)]="vehicle.engineType" name="engineType">
+                <option value=""></option>
+                <option *ngFor="let engineType of engines" [ngValue]="engineType">
+                    {{engineType}}
+                </option>
+              </select>
+            </div>
+
+            <div class="form-group col">
+                <label for="gearboxType">Gearbox</label>
+                <select class="form-control"  id="gearboxType"
+                required
+                [(ngModel)]="vehicle.gearboxType" name="gearboxType">
+                  <option value=""></option>
+                  <option *ngFor="let gearboxType of gearboxes" [ngValue]="gearboxType">
+                      {{gearboxType}}
+                  </option>
+                </select>
+            </div>
+    </div>
+    <div class="row">          
+      <div class="form-group col">
+        <label for="price">Price</label>
+        <input type="text" [(ngModel)]="vehicle.price" class="form-control" id="price" name="price" required #price="ngModel">
+      </div>
+
+      <div class="form-group col">
+        <label for="horsePower">Horse Power(hp)</label>
+        <input type="text" [(ngModel)]="vehicle.horsePower" class="form-control" id="horsePower" name="horsePower" required #horsePower="ngModel">
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col">
+        <label for="kmDriven">Km Driven</label>
+        <input type="text" [(ngModel)]="vehicle.kmDriven" class="form-control" id="kmDriven" name="kmDriven" required #kmDriven="ngModel">
+      </div>
+
+      <div class="form-group col">
+        <label for="year">Year</label>
+        <input type="text" [(ngModel)]="vehicle.year" class="form-control" id="year" name="year" required #year="ngModel">
+      </div>
+  </div>
+  <div class="row">
+    <div class="form-group col">
+      <label for="region">Region</label>
+      <!-- <input type="text" [(ngModel)]="vehicle.region" class="form-control" id="region" name="region" required #region="ngModel"> -->
+      <select class="form-control"  id="region"
+          required
+          [(ngModel)]="vehicle.region" name="region">
+            <option value=""></option>
+            <option *ngFor="let region of regions" [ngValue]="region">
+                {{region}}
+            </option>
+          </select>
+    </div>
+    <div class="form-group col"></div>
+  </div>
+  <div class=row>
+    <div class="form-group col">
+        <label for="extras">Extras :
+        <div *ngFor="let extra of extras;  let i = index">
+          <label>
+            <input type="checkbox" name="extras" value={{extra}}
+            [checked]="extras.indexOf(extra) < 0" (change)="updateCheckedExtras(extra, $event)"/> 
+            {{extra}}
+          </label>
+        </div>
+      </label>
+    </div>
+        <div class="form-group col">
+          <label for="description">Description: </label>
+          <textarea [(ngModel)]="vehicle.description" placeholder="Добави описание тук" class="form-control" id="description" name="description" #description="ngModel"></textarea>
+        </div> 
+  </div>  
+  <div class="form-group">
+     <label>Upload photos: </label><br>
+     <span style="color:red;" *ngIf="message">{{message}}</span>
+     <input #file type="file" (change)="onFileSelected($event); preview(file.files)">
+     <img [src]="imgURL" height="200" *ngIf="imgURL">
+     <button class="btn btn-success" (click)="onUpload()">UPLOAD</button>
+  </div>
+  
+    <button type="submit" [disabled]="!vehicleForm.form.valid" class="btn btn-success" (click)="onSubmit()">Submit</button>
+  </form>
+</div>
+<div *ngIf="isDone">
+    <label class="succ">You`ve successfully registered your car!!!</label><br><br>
+    <img src="assets/img/smiley-removebg-preview.png" height="300" width="300" class="succ_pic">    
+    <button class="btn btn-success succ_button" (click)="newAd()">New ad</button>
+</div>
+</div>

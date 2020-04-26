@@ -1,0 +1,15 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h1 class="panel-title results">RESULTS: </h1>
+  </div>
+  <div class="panel-body">
+    <div *ngIf="vehicles">
+      <div *ngFor="let vehicle of vehicles;let i=index" class="col-md-12">
+        <hr>
+        <app-vehicle  [vehicle]="vehicle"></app-vehicle>
+      </div>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,136 @@
+
+<br><br><br><br><br><br><br><br>
+<div class="form-group col">
+    <button class="btn btn-success succ_button" (click)="onSearch()" *ngIf="!isClicked">SEARCH</button>
+    <app-filtred-vehicles *ngIf="vehicles" [vehicles]="vehicles"></app-filtred-vehicles>
+</div> 
+<div class="container lala" *ngIf="!isClicked">
+  <form #vehicleForm="ngForm">
+    <div class="row">
+      <div class="form-group col">
+          <label for="type">Type</label>
+          <select class="form-control"  id="type"
+          [(ngModel)]="vehicleDTO.type" name="type">
+            <option value="Select one"></option>
+            <option *ngFor="let type of types" [ngValue]="type">
+                {{type}}
+            </option>
+          </select>
+      </div>
+      <div class="form-group col">
+            <label for="category">Category</label>
+            <select class="form-control"  id="category"
+            required
+            [(ngModel)]="vehicleDTO.categoryType" name="categoryType">
+              <option value=""></option>
+              <option *ngFor="let categoryType of categories" [ngValue]="categoryType">
+                  {{categoryType}}
+              </option>
+            </select>
+      </div>
+    </div>  
+    <div class="row">
+      <div class="form-group col">
+          <label for="brand">Brand</label>
+          <select class="form-control"  id="brand"
+          required
+          [(ngModel)]="vehicleDTO.brand" name="brand" (change)="onSelect($event.target.value)">
+            <option value=""></option>
+            <option *ngFor="let brand of brands" [ngValue]="brand">
+                {{brand}}
+            </option>
+          </select>
+      </div>
+      <div class="form-group col">
+            <label for="model">Model</label>
+            <select class="form-control"  id="model"
+            required
+            [(ngModel)]="vehicleDTO.model" name="brand">
+              <option value=""></option>
+              <option *ngFor="let model of models" [ngValue]="model">
+                  {{model}}
+              </option>
+            </select>
+      </div>
+    </div>
+    <div class="row">
+        <div class="form-group col">
+              <label for="engineType">Engine Type</label>
+              <select class="form-control"  id="engineType"
+              required
+              [(ngModel)]="vehicleDTO.engineType" name="engineType">
+                <option value=""></option>
+                <option *ngFor="let engineType of engines" [ngValue]="engineType">
+                    {{engineType}}
+                </option>
+              </select>
+        </div>
+        <div class="form-group col">
+                <label for="gearboxType">Gearbox</label>
+                <select class="form-control"  id="gearboxType"
+                required
+                [(ngModel)]="vehicleDTO.gearboxType" name="gearboxType">
+                  <option value=""></option>
+                  <option *ngFor="let gearboxType of gearboxes" [ngValue]="gearboxType">
+                      {{gearboxType}}
+                  </option>
+                </select>
+        </div>
+    </div>
+    <div class="row">          
+      <div class="form-group col">
+        <div class="row">
+          <div class="form-group col">
+              <label for="priceFrom">From:</label>
+              <input placeholder="лв." type="text" [(ngModel)]="vehicleDTO.fromPrice" class="form-control" id="priceFrom" name="priceFrom" required #priceFrom="ngModel">
+          </div>
+          <div class="form-group col">
+              <label for="priceTo">To:</label>
+              <input placeholder="лв." type="text" [(ngModel)]="vehicleDTO.toPrice" class="form-control" id="priceTo" name="priceTo" required #priceTo="ngModel">
+          </div>
+        </div>
+      </div>
+      <div class="form-group col">
+        <div class="row">
+          <div class="form-group col">
+              <label for="hpFrom">Horse Power(hp) FROM:</label>
+              <input type="text" [(ngModel)]="vehicleDTO.hpFrom" class="form-control" id="hpFrom" name="hpFrom" required #hpFrom="ngModel">
+          </div>
+          <div class="form-group col">
+              <label for="hpTo">Horse Power(hp) TO:</label>
+              <input type="text" [(ngModel)]="vehicleDTO.hpTo" class="form-control" id="hpTo" name="hpTo" required #hpTo="ngModel">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col">
+        <div class="row">
+          <div class="form-group col">
+              <label for="yearFrom">Year from:</label>
+              <input type="text" [(ngModel)]="vehicleDTO.yearFrom" class="form-control" id="yearFrom" name="yearFrom" required #yearFrom="ngModel">
+          </div>
+          <div class="form-group col">
+              <label for="yearTo">Year to:</label>
+              <input type="text" [(ngModel)]="vehicleDTO.yearTo" class="form-control" id="yearTo" name="yearTo" required #yearTo="ngModel">
+          </div>
+        </div>
+      </div>
+      <div class="form-group col">
+        <label for="region">Region</label>
+        <input type="text" [(ngModel)]="vehicleDTO.region" class="form-control" id="region" name="region" required #region="ngModel">
+      </div>
+  </div>
+  <div class=row>
+    <div class="form-group col">
+        <label for="extras">Extras :
+        <div *ngFor="let extra of extras;  let i = index">
+          <label>
+            <input type="checkbox" name="extras" value={{extra}}
+            [checked]="extras.indexOf(extra) < 0" (change)="updateCheckedExtras(extra, $event)"/> 
+            {{extra}}
+          </label>
+        </div>
+      </label>
+    </div>
+  </div>

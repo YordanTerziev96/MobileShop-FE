@@ -1,0 +1,57 @@
+<div class="space" *ngIf="myVehicle">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title" style="margin-left: 50px">{{myVehicle.brand}} - {{myVehicle.model}}</h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-5">
+              <!-- <img class="thumbnail" [src]="images[0]"> -->
+              <app-popupp [imagesrc]="imageSrc"></app-popupp>
+              <table style="margin-left: 45px;">
+                <tbody>
+                  <tr>
+                    <td *ngFor="let image of images;let i=index" style="width: 245px;">
+                        <img
+                         *ngIf="i < 3" class="thumbnail second" [src]="image" (click)="openNewTab(image)">
+                    </td>
+                  </tr> 
+                  <tr>
+                    <td *ngFor="let number of [3,4,5]" style="width: 245px;">
+                      <img *ngIf="images[number]" class="thumbnail second" [src]="images[number]" (click)="openNewTab(images[number])">
+                    </td>
+                  </tr>
+                  <tr>
+                      <td *ngFor="let number of [6,7,8]" style="width: 245px;">
+                        <img *ngIf="images[number]" class="thumbnail second" [src]="images[number]" (click)="openNewTab(images[number])">
+                      </td>
+                    </tr>
+                </tbody> 
+              </table>
+          </div>
+          <div class="col-md-7">
+            <ul class="list-group">
+              <li class="list-group-item"><h3>Price: {{myVehicle.price}} лв.</h3></li>
+              <li class="list-group-item">Model: {{myVehicle.model}}</li>
+              <li class="list-group-item">Brand: {{myVehicle.brand}}</li>
+              <li class="list-group-item">Extras: <span *ngFor="let extra of myVehicle.extras">{{extra}}, </span></li>
+              <li class="list-group-item">Horse power: {{myVehicle.horsePower}}</li>
+              <li class="list-group-item">Gearbox type: {{myVehicle.gearboxType}}</li>
+              <li class="list-group-item">Engine type: {{myVehicle.engineType}}</li>
+              <li class="list-group-item">Km driven: {{myVehicle.kmDriven}}</li>
+              <li class="list-group-item">Region: {{myVehicle.region}}</li>
+              <li class="list-group-item">Year: {{myVehicle.year}}</li>
+              <li class="list-group-item">Description: {{myVehicle.description}}</li>
+              <li class="list-group-item contacts">E-mail: {{user.email}}</li>
+              <li class="list-group-item contacts">Mobile phone: {{user.mobilePhone}}</li>
+            </ul>
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+  </div>
+  
+  

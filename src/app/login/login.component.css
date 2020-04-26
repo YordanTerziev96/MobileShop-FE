@@ -1,0 +1,51 @@
+.form-group {
+    width: 60%;
+    margin-left: 20%;
+}
+
+.regDiv {
+    width: 60%;
+    margin-left: 20%; 
+    color: greenyellow;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.lala {
+    background-color: rgb(73, 72, 72);
+    margin-top: 200px;
+}
+
+.succ {
+    font-size: 40px;
+    text-align: center;
+    display: block;
+}
+
+.succ_pic {
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+    height: 500px;
+    display: block;
+}
+
+.succ_button {
+    position: absolute;
+    bottom: 20px;
+    width: 80%;
+    margin-right: 10%;
+    margin-left: 10%;
+    border: 3px solid #8AC007;
+
+}
+
+.regbutton {
+    margin-top: 125px;
+}
+
+p {
+    color: red;
+    font-size: 20px;
+    text-align: center;
+}
